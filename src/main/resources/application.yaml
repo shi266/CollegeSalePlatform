@@ -1,0 +1,35 @@
+
+
+#Mysql数据库连接配置
+spring:
+  web:
+    resources:
+      static-locations: classpath:templates/,classpath:static/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.142.154.156:3306/collegesaleplatform?serverTimezone=UTC
+    username: sanqi
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    #添加配置第三方数据源Druid
+    druid:
+      initial-size: 20
+      min-idle: 10
+      max-active: 100
+
+#热部署
+  devtools:
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:com.sanqi.collegesaleplatform.mapper/mapperxml/*.xml
+  type-aliases-package: classpath:com.sanqi.collegesaleplatform.entity
+  configuration:
+    map-underscore-to-camel-case: true   #驼峰命名匹配映射
+server:
+  port: 8081

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://8.142.154.156:8081/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+        body{
+            background-image: url("http://8.142.154.156:8081/img/index.png");
+            width: 100%;
+            height: 100%;
+        }
+        #login{
+            width: 360px;
+            height: 450px;
+            position: absolute;
+            margin-left: 1300px;
+            margin-top: 200px;
+            background-color: white ;
+            border-radius: 10px;
+        }
+        #register{
+            width: 360px;
+            height: 450px;
+            position: absolute;
+            margin-left: 1300px;
+            margin-top: 200px;
+            background-color: white ;
+            border-radius: 10px;
+        }
+        .top{
+            width: 320px;
+            height: 60px;
+            background-color: #0dcaf0;
+            text-align: center;
+            line-height: 60px;
+            font-size: x-large;
+            position: relative;
+            margin-top: 40px;
+            margin-left: -10px;
+            border-bottom-right-radius: 50px;
+
+        }
+        .info{
+            width: 300px;
+            height: 400px;
+            position: relative;
+            margin-left: 40px;
+            margin-top: 30px;
+        }
+        .check{
+            width: 180px;
+            height: 30px;
+            background-color: #86b7fe;
+            position: relative;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body >
+<div id="login">
+    <div class="top">
+        管理员登录
+    </div>
+    <form class="bs-example bs-example-form" role="form" id="form_login">
+        <div class="info">
+            <div class="input-group " >
+                <span class="input-group-addon">用户名</span>
+                <input type="text" class="form-control" placeholder="请输入用户名" name="username" id="usernameLogin">
+            </div><br>
+            <div class="input-group">
+                <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
+                <input type="text" class="form-control" placeholder="请输入密码" name="password" id="passwordLogin">
+            </div><br>
+            <div class="input-group ">
+                <span class="input-group-addon">验证码</span>
+                <input type="text" class="form-control" placeholder="请输入下方验证码" name="staffCode">
+            </div>
+            <br>
+            <div class="check">
+                验证码区域
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn_login" >登录</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn_register" onclick="registerLogin()">前往注册</button>
+        </div>
+    </form>
+</div>
+
+<div id="register" style="display: none">
+    <div class="top">
+        用户注册
+    </div>
+    <form class="bs-example bs-example-form" role="form" id="form_register">
+        <div class="info">
+            <div class="input-group " >
+                <span class="input-group-addon">用户名</span>
+                <input type="text" class="form-control" placeholder="请输入用户名" name="username" id="usernameRegister">
+            </div><br>
+            <div class="input-group">
+                <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
+                <input type="text" class="form-control" placeholder="请输入密码" name="password" id="passwordRegister">
+            </div>
+            <br>
+            <div class="input-group ">
+                <span class="input-group-addon">验证码</span>
+                <input type="text" class="form-control" placeholder="请输入下方验证码" name="staffCode">
+            </div>
+            <br>
+            <div class="check">
+                验证码区域
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="register_login" onclick="loginRegister()">前往登录</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="register_register" onclick="register()">注册</button>
+        </div>
+    </form>
+</div>
+</body>
+<!--登录-->
+<script>
+    $(function (){
+        $("#btn_login").click(function (){
+            var username = $("#usernameLogin").val();
+            var password = $("#passwordLogin").val();
+            if(username == null || username == ""){
+                alert("请输入用户名")
+            }else if(password == null || password == ""){
+                alert("请输入密码")
+            }else {
+                $.ajax({
+                    async:false,
+                    url:'/sanqi/checkLogin',
+                    data:$("#form_login").serialize(),
+                    type:'get',
+                    dataType:'text',
+                    success:function (data){
+                        // window.prompt("速度",data);
+                        if(data == "success"){
+                            window.location.href="../sanqi/index"
+                        }else {
+                            alert(data)
+                        }
+
+                    }
+                })
+            }
+
+        });
+    });
+</script>
+<!--注册-->
+<script>
+    function loginRegister(){
+        $("#login").show();
+        $("#register").hide();
+    }
+    function registerLogin(){
+        $("#login").hide();
+        $("#register").show();
+    }
+    function register(){
+
+        //注册信息
+        var username = $("#usernameRegister").val();
+        var password = $("#passwordRegister").val();
+        if(username == null || username == ""){
+            alert("请输入用户名")
+        }else if(password == null || password == ""){
+            alert("请输入密码")
+        }else {
+            $.ajax({
+                async:false,
+                url:'/sanqi/register',
+                data:$("#form_register").serialize(),
+                type:'get',
+                dataType:'text',
+                success:function (data){
+                    if(data == "success"){
+                        window.location.href="../sanqi/index"
+                    }else {
+                        alert(data)
+                    }
+
+                }
+            })
+        }
+
+
+
+    }
+
+</script>
+</html>
