@@ -62,7 +62,7 @@
         }
     </style>
 </head>
-<body >
+<body onbeforeunload="test()" >
 <div id="login">
     <div class="top">
         管理员登录
@@ -100,7 +100,7 @@
         <div class="info">
             <div class="input-group " >
                 <span class="input-group-addon">用户名</span>
-                <input type="text" class="form-control" placeholder="请输入用户名" name="username" id="usernameRegister">
+                <input type="text" class="form-control" placeholder="请输入用户名" name="username" id="usernameRegister" onblur="leave(this.value)">
             </div><br>
             <div class="input-group">
                 <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
@@ -122,6 +122,31 @@
     </form>
 </div>
 </body>
+<!--页面关闭检测-->
+<script>
+    function test(){
+       alert("确定关闭页面吗")
+    }
+</script>
+<!--页面数据检测-->
+<script>
+    function leave(data){
+       if(data != null && data != ""){
+           $.ajax({
+               async:false,
+               url:'/sanqi/checkData',
+               data:{"username":data},
+               type:'get',
+               dataType:'text',
+               success:function (data){
+                   if(data != "success"){
+                      alert("该用户名以存在")
+                   }
+               },
+           })
+       }
+    }
+</script>
 <!--登录-->
 <script>
     $(function (){
@@ -147,7 +172,11 @@
                             alert(data)
                         }
 
+                    },
+                    error:function (){
+                        alert("失败，请稍后重试!")
                     }
+
                 })
             }
 

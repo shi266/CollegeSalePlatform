@@ -1,4 +1,4 @@
-package com.sanqi.collegesaleplatform.controller;
+package com.sanqi.collegesaleplatform.loginController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,5 +18,11 @@ public class SanQiStaffController {
         System.out.println("欢迎来到springboot");
         return "index";
     }
+    @GetMapping("/test")
+    public String  test(){
+        System.out.println("欢迎来到springboot");
+        return "test";
+    }
+
 
 }

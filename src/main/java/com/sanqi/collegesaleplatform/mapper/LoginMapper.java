@@ -10,5 +10,6 @@ import java.util.List;
 public interface LoginMapper {
 
     List<User> checkLogin(User user);
+    List<User> contains(User user);
     boolean register(User user);
 }
