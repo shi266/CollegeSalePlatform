@@ -3,21 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8080/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="http://8.142.154.156:8081//img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--    <link rel="stylesheet" href="/css/bootstrap.min.css">-->
+
+    <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<!--    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script  type="text/javascript" src="/js/bootstrap-table.js"></script>
     <style type="text/css">
-        #tabLeft{
-            margin-left: -10px;
-            margin-top: -20px;
-            background-color: #adb5bd;
+
+        /*左侧面板*/
+        #leftPanel{
+            /*position: absolute;*/
+            position:fixed;
+            margin-top: 50px;
+            margin-left: 0px;
+            background-color: #0c4128;
+            width: 400px;
+            height: 890px;
         }
-        #tabRow{
-            height: 100%;
-            width: 100%;
+        /*右侧面板*/
+        #rightPanel{
+            position: absolute;
+            margin-left: 300px;
+            margin-top: 50px;
+            background-color: #adb5bd;
+            width: 1603px;
+            min-height: 885px;
+        }
+        body{
+            background-color: white;
+        }
+        /*模块六*/
+        #SixPanel{
+            height: 500px;
+            background-color: white;
+            margin-left: 50px;
+        }
+        /*导航栏*/
+        .navbar{
+            background-color: #ffc720;
+        }
+        /*返回顶部*/
+        #returnTop{
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            margin-left: 90%;
+            margin-top: 800px;
         }
     </style>
+    <!--返回顶部函数-->
+    <script>
+        $(function (){
+            $(window).scroll(function (){
+                if($(window).scrollTop() > 300){
+                    $("#returnTop").show();
+                }else {
+                    $("#returnTop").hide();
+                }
+            })
+        })
+    </script>
     <!--退出登录-->
     <script>
         function exitLogin(){
@@ -37,91 +85,245 @@
             })
         }
     </script>
+    <!--获取后台数据-->
+    <script>
+         $("#tableData").bootstrapTable({
+             method: "post",
+             url: "获取后台数据的url",
+             onLoadSuccess: function(){  //加载成功时执行
+                 console.info("加载成功");
+             },
+             onLoadError: function(){  //加载失败时执行
+                 console.info("加载数据失败");
+             }
+         });
+
+    </script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-fixed-top">
     <div class="container">
-        <div class="nav-header " style="font-size: xx-large;color: #adb5bd">
-            <a class="navbar-brand">高校闲鱼二手交易平台</a>
+        <div class="nav-header" style="font-size: xx-large">
+            <a class="navbar-brand" style="color: black">高校闲鱼二手交易平台</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div  class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">
-                <button type="submit" class="btn btn-info" onclick="exitLogin()" >退出登录</button>
+                <button type="submit" class="btn btn-dark" onclick="exitLogin()" >退出登录</button>
             </form>
         </div>
     </div>
 </nav>
-<div class="container-fluid" >
-    <div class="row" id="tabRow" >
-        <div class="col-md-2"  id="tabLeft">
-            <ul class="nav  nav-pills nav-stacked">
-                <li class="active btn-lg" style="border: 1px solid blueviolet"><a href="#model1"  data-toggle="tab">模块一</a></li>
-                <li class="btn-lg"><a href="#model2"  data-toggle="tab">模块2</a></li>
-                <li class="btn-lg"><a href="#model3"  data-toggle="tab">模块3</a></li>
-                <li class="btn-lg"><a href="#model4"  data-toggle="tab">模块4</a></li>
-                <li class="btn-lg"><a href="#model5"  data-toggle="tab">模块5</a></li>
-                <li class="btn-lg"><a href="#model6"  data-toggle="tab">模块6</a></li>
-
-            </ul>
-        </div>
-        <div class="col-md-10 tab-content" style="color: #86b7fe">
-            <!--模块一-->
-            <div class="tab-pane in active" id="model1">
-                <div id="myCarousel" class="carousel slide">
-                    <!-- 轮播（Carousel）指标 -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <!-- 轮播（Carousel）项目 -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="/wp-content/uploads/2014/07/slide1.png" alt="First slide">
-                        </div>
-                        <div class="item">
-                            <img src="/wp-content/uploads/2014/07/slide2.png" alt="Second slide">
-                        </div>
-                        <div class="item">
-                            <img src="/wp-content/uploads/2014/07/slide3.png" alt="Third slide">
-                        </div>
-                    </div>
-                    <!-- 轮播（Carousel）导航 -->
-                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+<!--左侧面板-->
+<div id="leftPanel">
+    <div class="container-fluid" >
+        <ul class="nav  nav-pills nav-stacked">
+            <li class="active btn-lg" ><a href="#model1"  data-toggle="tab">首页  </a></li>
+            <li class="btn-lg"><a href="#model2"  data-toggle="tab">模块2</a></li>
+            <li class="btn-lg"><a href="#model3"  data-toggle="tab">模块3</a></li>
+            <li class="btn-lg"><a href="#model4"  data-toggle="tab">模块4</a></li>
+            <li class="btn-lg"><a href="#model5"  data-toggle="tab">模块5</a></li>
+            <li class="btn-lg"><a href="#model6"  data-toggle="tab">模块6</a></li>
+        </ul>
+    </div>
+</div>
+<!--右侧面板-->
+<div id="rightPanel">
+    <div class="col-md-12 tab-content" style="color: #86b7fe" >
+        <!--模块一-->
+        <div class="tab-pane in active" id="model1">
+            <div class="row" style="margin-left: 300px;margin-top: 60px">
+                <div class="col-lg-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="请输入您想要的宝贝">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                搜索
+                            </button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
             </div>
-            <!--模块二-->
-            <div class="tab-pane fade" id="model2">模块二</div>
-            <!--模块三-->
-            <div class="tab-pane fade" id="model3">模块三</div>
-            <!--模块四-->
-            <div class="tab-pane fade" id="model4">模块四</div>
-            <!--模块五-->
-            <div class="tab-pane fade" id="model5">模块五</div>
-            <!--模块六-->
-            <div class="tab-pane fade" id="model6" style="margin-top: 150px">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title" style="text-align: center">
-                            公告
-                        </h3>
+            <br>
+            <hr>
+            <!--数据显示区域-->
+            <table class="table" id="tableData">
+                这里是一个table
+            </table>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
                     </div>
-                    <div class="panel-body">
-                        面板内容
-                    </div>
-                    <div class="panel-footer" style="text-align: right">面板脚注</div>
                 </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/22.jpg">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <a href="#" class="back-to-top"> Back to top </a>
+                <a href="#">返回顶部</a>
+
+
+
+
+
+
+            </div>
+        </div>
+        <!--模块二-->
+        <div class="tab-pane fade" id="model2">模块二</div>
+        <!--模块三-->
+        <div class="tab-pane fade" id="model3">模块三</div>
+        <!--模块四-->
+        <div class="tab-pane fade" id="model4">模块四</div>
+        <!--模块五-->
+        <div class="tab-pane fade" id="model5">模块五</div>
+        <!--模块六-->
+        <div class="tab-pane fade" id="model6" style="margin-left: 0px;margin-top: 150px" >
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="text-align: center">
+                        公告
+                    </h3>
+                </div>
+                <div class="panel-body" id="SixPanel">
+
+                    <p>
+                        面板内容：
+                                今天做活动！
+                        欢迎大家许仙那狗
+                    </p>
+                </div>
+                <div class="panel-footer" style="text-align: right">面板脚注</div>
             </div>
         </div>
     </div>
+</div>
 
+<div id="returnTop" style="display: none">
+    <a href="#">
+        <img src="/img/top.png" alt="返回顶部" height="80px" width="80px" class="img-circle" >
+    </a>
 </div>
 
 

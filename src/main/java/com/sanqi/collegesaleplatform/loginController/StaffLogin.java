@@ -3,6 +3,7 @@ package com.sanqi.collegesaleplatform.loginController;
 import com.sanqi.collegesaleplatform.entity.User;
 import com.sanqi.collegesaleplatform.mapper.LoginMapper;
 import com.sanqi.collegesaleplatform.service.LoginService;
+import com.sanqi.collegesaleplatform.util.ReturnJsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,14 +40,15 @@ public class StaffLogin {
             return "注册失败";
         }
     }
-    @GetMapping("/checkData")
-    public String checkData(User user){
+    @GetMapping("/getUser")
+    public ReturnJsonObject checkData(User user,ReturnJsonObject returnJsonObject){
         System.out.println("data:"+user);
-       List<User> contains = loginMapper.contains(user);
-       if(contains.size()!=0){
-           return "fail";
-       }
-       return "success";
+       List<User> users = loginMapper.getUser();
+       returnJsonObject.setSuccess(true);
+       returnJsonObject.setRows("展示数据");
+       returnJsonObject.setTotal(users.size());
+       return returnJsonObject;
+
     }
     @GetMapping("/exitLogin")
     public String exitLogin(HttpSession session){

@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.websocket.Session;
-@Component
+//@Component
 public class LoginInterceptor implements HandlerInterceptor {
 
     @Override

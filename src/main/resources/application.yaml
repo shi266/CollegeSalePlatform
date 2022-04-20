@@ -4,7 +4,7 @@
 spring:
   web:
     resources:
-      static-locations: classpath:templates/,classpath:static/
+      static-locations: classpath:/templates/**,classpath:static/
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://8.142.154.156:3306/collegesaleplatform?serverTimezone=UTC
