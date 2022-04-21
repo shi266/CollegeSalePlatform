@@ -61,10 +61,23 @@
             width: 1580px;
             height: 900px;
         }
+    /*   商家注册  */
+        #sellerRisgter{
+            margin-top: 30px;
+            margin-left: 150px;
+            width: 1300px;
+        }
+        /*   上传商品  */
+        #uploadStore{
+            margin-top: 30px;
+            margin-left: 150px;
+            width: 1300px;
+        }
     </style>
     <!--返回顶部函数-->
     <script>
-        $(function (){
+
+    $(function (){
             $(window).scroll(function (){
                 if($(window).scrollTop() > 300){
                     $("#returnTop").show();
@@ -408,7 +421,122 @@
         <!--模块二-->
         <div class="tab-pane fade" id="model2">分类</div>
         <!--模块三-->
-        <div class="tab-pane fade" id="model3">商家</div>
+        <div class="tab-pane fade" id="model3" style="margin-top: 100px">
+            <div class="panel panel-primary" id="sellerRegisterDiv">
+                <div class="panel-heading">
+                     <span style="text-align: left">
+                        <button type="button" class="btn-danger " id="closeSeller">关闭</button>
+                         <script>
+                               $("#closeSeller").click(function (){
+                                   $("#sellerRegisterDiv").hide()
+                               })
+                         </script>
+                    </span>
+                    <h3 class="panel-title" style="text-align: center">
+                      注册商家
+                    </h3>
+                </div>
+                <div id="sellerRisgter" >
+                    <div class="input-group " >
+                        <span class="input-group-addon">商家名称</span>
+                        <input type="text" class="form-control" placeholder="请输入商家名称" name="sellerName" id="sellerName" onblur="leave(this.value)">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;名</span>
+                        <input type="text" class="form-control" placeholder="请输入真实姓名" name="realName" id="realName">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">学&nbsp;&nbsp; 号</span>
+                        <input type="text" class="form-control" placeholder="请输入学号" name="studengId" id="realNameRegister">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">学&nbsp;&nbsp;&nbsp;院</span>
+                        <input type="tel" class="form-control" placeholder="请输入电话" name="collage" id="college">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">班&nbsp;  级</span>
+                        <input type="text" class="form-control" placeholder="请输入学院" name="classId" id="classId">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>
+                        <input type="email" class="form-control" placeholder="请输入邮箱" name="email" id="emailRegister">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">学 生 证 </span>
+                        <input type="file" name="studentImage" id="studentImage" onmouseleave="upload()">
+                        <script>
+                            function upload(){
+                                var fileM=document.querySelector("#studentImage");
+                                var fileObj = fileM.files[0];
+                                alert(fileObj)
+                            }
+                        </script>
+                    </div><br>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="register_login" onclick="loginRegister()">注册</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+<!--         上传商品   -->
+            <div class="panel panel-primary" id="uploadStoreDiv">
+                <div class="panel-heading">
+                     <span style="text-align: left">
+                        <button type="button" class="btn-danger " id="closeUploadStore">关闭</button>
+                         <script>
+                               $("#closeUploadStore").click(function (){
+                                   $("#uploadStoreDiv").hide()
+                               })
+                         </script>
+                    </span>
+                    <h3 class="panel-title" style="text-align: center">
+                        上传商品
+                    </h3>
+                </div>
+                <div id="uploadStore" >
+                    <div class="input-group " >
+                        <span class="input-group-addon">商品名称</span>
+                        <input type="text" class="form-control" placeholder="请输入商家名称" name="sellerName" id="storeName" onblur="leave(this.value)">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">商品标签</span>
+                        <input type="text" class="form-control" placeholder="请输入真实姓名" name="realName" id="realName">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">学&nbsp;&nbsp; 号</span>
+                        <input type="text" class="form-control" placeholder="请输入学号" name="studengId" id="realNameRegister">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">学&nbsp;&nbsp;&nbsp;院</span>
+                        <input type="tel" class="form-control" placeholder="请输入电话" name="collage" id="college">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">班&nbsp;  级</span>
+                        <input type="text" class="form-control" placeholder="请输入学院" name="classId" id="classId">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>
+                        <input type="email" class="form-control" placeholder="请输入邮箱" name="email" id="emailRegister">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">学 生 证 </span>
+                        <input type="file" name="studentImage" id="studentImage" onmouseleave="upload()">
+                        <script>
+                            function upload(){
+                                var fileM=document.querySelector("#studentImage");
+                                var fileObj = fileM.files[0];
+                                alert(fileObj)
+                            }
+                        </script>
+                    </div><br>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="register_login" onclick="loginRegister()">注册</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
         <!--模块四-->
         <div class="tab-pane fade" id="model4">购物车</div>
         <!--模块五-->
@@ -442,6 +570,14 @@
 </div>
 <div id="detailInfoDiv" style="display: none" class="panel panel-primary">
     <div class="panel-heading">
+         <span style="text-align: left">
+                <button type="button" class="btn-danger " id="closeDetail">关闭</button>
+             <script>
+                   $("#closeDetail").click(function (){
+                       $("#detailInfoDiv").hide()
+                   })
+             </script>
+            </span>
         <h3 class="panel-title" style="text-align: center">
             商品信息详情
         </h3>
@@ -481,14 +617,13 @@
         <div class="row">
             <div class="col-md-6">
                 <pre>
-                    <img src="/img/qq1.jpg" height="20px" width="20px" class="img-circle">三七、：
-                         这个桌子看起来质量不错.
+                    <img src="/img/qq1.jpg" height="20px" width="20px" class="img-circle">三七、：这个桌子看起来质量不错.
 
                        <img src="/img/favicon.ico" height="20px" width="20px" class="img-circle"> 商家回复：感谢您的喜欢，桌子质量是肯定有保证的！
 
                     <img src="/img/qq2.jpg" height="20px" width="20px" class="img-circle">南山南：这桌子看起来有点矮诶？
 
-                        <img src="/img/favicon.ico" height="20px" width="20px" class="img-circle">商家回复：上边有该商品的详细信息哦，请仔细确认再进行购买。
+                       <img src="/img/favicon.ico" height="20px" width="20px" class="img-circle"> 商家回复：上边有该商品的详细信息哦，请仔细确认再进行购买。
                 </pre>
             </div>
         </div>
