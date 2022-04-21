@@ -53,6 +53,14 @@
             margin-left: 90%;
             margin-top: 800px;
         }
+    /*  商品信息详情Div  */
+        #detailInfoDiv{
+            margin-top: 70px;
+            margin-left: 310px;
+            position: absolute;
+            width: 1580px;
+            height: 900px;
+        }
     </style>
     <!--返回顶部函数-->
     <script>
@@ -85,6 +93,13 @@
             })
         }
     </script>
+    <script>
+        <!--  商品信息详情  -->
+        function detailInfo(){
+            $("#detailInfoDiv").show();
+            $("#serach").hide();
+        }
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-fixed-top">
@@ -104,11 +119,11 @@
     <div class="container-fluid" >
         <ul class="nav  nav-pills nav-stacked">
             <li class="active btn-lg" ><a href="#model1"  data-toggle="tab">首页</a></li>
-            <li class="btn-lg"><a href="#model2"  data-toggle="tab">模块2</a></li>
-            <li class="btn-lg"><a href="#model3"  data-toggle="tab">模块3</a></li>
-            <li class="btn-lg"><a href="#model4"  data-toggle="tab">模块4</a></li>
-            <li class="btn-lg"><a href="#model5"  data-toggle="tab">模块5</a></li>
-            <li class="btn-lg"><a href="#model6"  data-toggle="tab">模块6</a></li>
+            <li class="btn-lg"><a href="#model2"  data-toggle="tab">分类</a></li>
+            <li class="btn-lg"><a href="#model3"  data-toggle="tab">商家</a></li>
+            <li class="btn-lg"><a href="#model4"  data-toggle="tab">购物车</a></li>
+            <li class="btn-lg"><a href="#model5"  data-toggle="tab">我的信息</a></li>
+            <li class="btn-lg"><a href="#model6"  data-toggle="tab">公告</a></li>
         </ul>
     </div>
 </div>
@@ -117,7 +132,7 @@
     <div class="col-md-12 tab-content" style="color: #86b7fe" >
         <!--模块一-->
         <div class="tab-pane in active" id="model1">
-            <div class="row" style="margin-left: 300px;margin-top: 60px">
+            <div class="row" style="margin-left: 300px;margin-top: 60px" id="serach">
                 <div class="col-lg-10">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="请输入您想要的宝贝">
@@ -132,13 +147,65 @@
             <br>
             <hr>
             <!--数据显示区域-->
-            <table class="table" id="tableData">
-                这里是一个table
-            </table>
+<!--            <table class="table" id="tableData">-->
+<!--                这里是一个table-->
+<!--            </table>-->
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <img src="/img/22.jpg">
+                        <img src="/img/101.jpg" style="width: 300px;height: 300px" onclick="detailInfo()">
+                        <h3>课堂小桌子、凳子 </h3>
+                        <p>57 元</p>
+                        <button class="btn btn-default">
+                            <span>购买</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">加入购物车</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/lan.jpg" style="width: 300px;height: 300px">
+                        <h3>商铺专用挂篮</h3>
+                        <p>7 元</p>
+                        <button class="btn btn-default">
+                            <span>购买</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">加入购物车</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/yizi.jpg" style="width: 300px;height: 300px">
+                        <h3>米白色宿舍椅子</h3>
+                        <p>34 元</p>
+                        <button class="btn btn-default">
+                            <span>购买</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">加入购物车</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/bike.jpg" style="width: 300px;height: 300px">
+                        <h3>纯黑自行车</h3>
+                        <p>156 元</p>
+                        <button class="btn btn-default">
+                            <span>购买</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">加入购物车</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/103.jpg" style="width: 300px;height: 300px">
                         <h3>王嘉华</h3>
                         <p>河南安阳</p>
                         <button class="btn btn-default">
@@ -151,7 +218,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <img src="/img/22.jpg">
+                        <img src="/img/104.jpg" style="width: 300px;height: 300px">
                         <h3>王嘉华</h3>
                         <p>河南安阳</p>
                         <button class="btn btn-default">
@@ -162,10 +229,175 @@
                         </button>
                     </div>
                 </div>
-
-                <a href="#" class="back-to-top"> Back to top </a>
-                <a href="#">返回顶部</a>
-
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/105.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/107.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/106.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/110.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/112.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/116.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/117.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/jiadian.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/lan.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/lan2.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/watch.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/xiangpini.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/img/xiaofu.jpg" style="width: 300px;height: 300px">
+                        <h3>王嘉华</h3>
+                        <p>河南安阳</p>
+                        <button class="btn btn-default">
+                            <span>喜欢</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">喜欢</span>
+                        </button>
+                    </div>
+                </div>
 
 
 
@@ -174,13 +406,13 @@
             </div>
         </div>
         <!--模块二-->
-        <div class="tab-pane fade" id="model2">模块二</div>
+        <div class="tab-pane fade" id="model2">分类</div>
         <!--模块三-->
-        <div class="tab-pane fade" id="model3">模块三</div>
+        <div class="tab-pane fade" id="model3">商家</div>
         <!--模块四-->
-        <div class="tab-pane fade" id="model4">模块四</div>
+        <div class="tab-pane fade" id="model4">购物车</div>
         <!--模块五-->
-        <div class="tab-pane fade" id="model5">模块五</div>
+        <div class="tab-pane fade" id="model5">我的</div>
         <!--模块六-->
         <div class="tab-pane fade" id="model6" style="margin-left: 0px;margin-top: 150px" >
             <div class="panel panel-primary">
@@ -205,10 +437,64 @@
 
 <div id="returnTop" style="display: none">
     <a href="#">
-        <img src="/img/top.png" alt="返回顶部" height="80px" width="80px" class="img-circle" >
+        <img src="/img/top.png" alt="返回顶部" height="60px" width="60px" class="img-circle" >
     </a>
 </div>
+<div id="detailInfoDiv" style="display: none" class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title" style="text-align: center">
+            商品信息详情
+        </h3>
+        <div class="row">
+            <br>
+            <br>
+                <!--商品图片显示区域-->
+                <div class="col-md-3">
+                        <img src="/img/101.jpg" style="width: 300px;height: 300px" onclick="detailInfo()">
+                        <h3>课堂小桌子、凳子 </h3>
+                        <p>57 元</p>
+                        <button class="btn btn-default">
+                            <span>购买</span>
+                        </button>
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil">加入购物车</span>
+                        </button>
+                </div>
+                <div class="col-md-9" id="detailRecord">
+                    <pre>
+                        参数--桌子            --椅子
+                        长：80 cm              长：30 cm
+                        高：100 cm             高：40 cm  靠背：40cm
+                        宽：50 cm              宽：30 cm
 
+                        新旧程度：九成新
+                        重量： 桌子： 15 kg    椅子：5kg
+                        使用时间：1.4年
+                        颜色：棕木色
+                        材料：桌面、椅子面：三合板
+                             桌子腿、椅子腿：混合金属
+                    </pre>
+                </div>
+        </div>
+            <!--商品评论区域-->
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+                    <img src="/img/qq1.jpg" height="20px" width="20px" class="img-circle">三七、：
+                         这个桌子看起来质量不错.
+
+                       <img src="/img/favicon.ico" height="20px" width="20px" class="img-circle"> 商家回复：感谢您的喜欢，桌子质量是肯定有保证的！
+
+                    <img src="/img/qq2.jpg" height="20px" width="20px" class="img-circle">南山南：这桌子看起来有点矮诶？
+
+                        <img src="/img/favicon.ico" height="20px" width="20px" class="img-circle">商家回复：上边有该商品的详细信息哦，请仔细确认再进行购买。
+                </pre>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 </body>
